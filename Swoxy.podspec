@@ -30,7 +30,7 @@ Swoxy MVP helper
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Swoxy/Classes/*.swift'
+  s.source_files = 'Swoxy/Classes/**/*'
   
   # s.resource_bundles = {
   #   'Swoxy' => ['Swoxy/Assets/*.png']
