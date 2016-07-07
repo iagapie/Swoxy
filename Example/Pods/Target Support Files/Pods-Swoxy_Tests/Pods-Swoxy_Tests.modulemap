@@ -1,0 +1,6 @@
+framework module Pods_Swoxy_Tests {
+  umbrella header "Pods-Swoxy_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
