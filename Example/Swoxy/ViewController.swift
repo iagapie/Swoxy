@@ -70,17 +70,7 @@ class DisplayTextCommand: ViewCommand {
     }
 }
 
-class TextViewState: MvpViewState, TextView {    
-    override func restoreState(view: View) {
-        super.restoreState(view)
-        
-        if commands.isEmpty {
-            return
-        }
-        
-        commands.reapply(view)
-    }
-    
+class TextViewState: MvpViewState, TextView {
     func displayText(text: String) {
         let command = DisplayTextCommand(text: text)
         commands.beforeApply(command)

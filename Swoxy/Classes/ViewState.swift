@@ -30,6 +30,11 @@ public class MvpViewState: ViewState {
     }
     
     public func restoreState(view: View) {
+        if commands.isEmpty {
+            return
+        }
+        
+        commands.reapply(view)
     }
     
     public func attachView(view: View) {
