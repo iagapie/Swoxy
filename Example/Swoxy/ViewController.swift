@@ -50,7 +50,7 @@ class TextProcessor: MvpProcessor {
         self.resolver = resolver
     }
     
-    func getMvpPresenters<T: View>(delegated: T) -> [MvpPresenter] {
+    func getMvpPresenters<T: View>(delegated: T) -> [Presenter] {
         return [resolver.resolve(MvpPresenter.self)!]
     }
 }

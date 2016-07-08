@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol MvpProcessor {
-    func getMvpPresenters<T: View>(delegated: T) -> [MvpPresenter]
+    func getMvpPresenters<T: View>(delegated: T) -> [Presenter]
 }

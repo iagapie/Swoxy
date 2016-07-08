@@ -13,7 +13,7 @@ public class MvpDelegate {
     
     private var isAttached: Bool = false
     private weak var delegated: View!
-    private var presenters: [MvpPresenter] = []
+    private var presenters: [Presenter] = []
     
     public init(processor: MvpProcessor) {
         self.processor = processor
