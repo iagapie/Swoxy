@@ -29,6 +29,18 @@ public class MvpViewState: ViewState {
     public init() {
     }
     
+    public func addCommand<Command: ViewCommand>(command: Command, action: (view: View) -> Void) {
+        commands.beforeApply(command)
+        
+        if views.isEmpty {
+            return
+        }
+        
+        views.forEach { action(view: $0) }
+        
+        commands.afterApply(command)
+    }
+    
     public func restoreState(view: View) {
         if commands.isEmpty {
             return
