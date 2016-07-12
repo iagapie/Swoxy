@@ -10,6 +10,12 @@ import Foundation
 
 public let propertyStorage = PropertyStorage()
 
+infix operator >!< {}
+
+public func >!< (object1: AnyObject!, object2: AnyObject!) -> Bool {
+    return (object_getClassName(object1) == object_getClassName(object2))
+}
+
 public func synchronized(lock: NSObject, work: () -> Void) {
     objc_sync_enter(lock)
     defer { objc_sync_exit(lock) }
@@ -24,7 +30,7 @@ public func synchronized<T>(lock: NSObject, work: () -> T) -> T {
 
 internal func removeView(inout views: [View], view: View) {
     for i in 0..<views.count {
-        if views[i] === view {
+        if views[i] >!< view {
             views.removeAtIndex(i)
             break
         }
@@ -33,7 +39,7 @@ internal func removeView(inout views: [View], view: View) {
 
 internal func containsView(views: [View], view: View) -> Bool {
     for i in 0..<views.count {
-        if views[i] === view {
+        if views[i] >!< view {
             return true
         }
     }
