@@ -71,7 +71,7 @@ class TextViewState: MvpViewState, TextView {
     }
 }
 
-class ViewController: UIViewController, TextView {
+class ViewController: UIViewController, TextView, MvpView {
     @IBOutlet weak var textField: UITextField!
     
     var mvpDelegate: MvpDelegate!
@@ -84,7 +84,14 @@ class ViewController: UIViewController, TextView {
     override func viewDidLoad() {
         super.viewDidLoad()
         mvpDelegate.onCreate(self)
-        mvpDelegate.attachView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if mvpDelegate != nil {
+            mvpDelegate.attachView()
+        }
     }
     
     @IBAction func setTitleAction(sender: UIButton) {

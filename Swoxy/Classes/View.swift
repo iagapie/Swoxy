@@ -9,11 +9,8 @@
 import Foundation
 
 public protocol View: class {
-    var presenters: [Presenter] { get }
 }
 
-extension View {
-    public var presenters: [Presenter] {
-        return []
-    }
+public protocol MvpView: class {
+    var presenters: [Presenter] { get }
 }

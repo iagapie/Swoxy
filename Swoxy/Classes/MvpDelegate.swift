@@ -10,6 +10,7 @@ import Foundation
 
 public class MvpDelegate {
     private var isAttached: Bool = false
+    private var mvpView: MvpView?
     private var delegated: View!
     
     public init() {
@@ -17,6 +18,7 @@ public class MvpDelegate {
     
     public func onCreate<V: View>(delegated: V) {
         self.delegated = delegated
+        self.mvpView = delegated as? MvpView
         isAttached = false
     }
     
@@ -29,7 +31,7 @@ public class MvpDelegate {
             return
         }
         
-        for presenter in delegated.presenters {
+        for presenter in mvpView?.presenters ?? [] {
             if presenter.contains(delegated) {
                 continue
             }
@@ -41,7 +43,7 @@ public class MvpDelegate {
     }
     
     public func detachView() {
-        for presenter in delegated.presenters {
+        for presenter in mvpView?.presenters ?? [] {
             presenter.detachView(delegated)
         }
         
@@ -49,10 +51,11 @@ public class MvpDelegate {
     }
     
     public func onDestroy() {
-        for presenter in delegated.presenters {
+        for presenter in mvpView?.presenters ?? [] {
             presenter.onDestroy()
         }
         
+        mvpView = nil
         delegated = nil
     }
 }
