@@ -17,9 +17,7 @@ extension SwinjectStoryboard {
             c.presenter = r.resolve(MvpPresenter.self) as! TextPresenter
         }
         
-        defaultContainer.register(MvpDelegate.self) { MvpDelegate(processor: $0.resolve(MvpProcessor.self)!) }
-        
-        defaultContainer.register(MvpProcessor.self) { TextProcessor(resolver: $0) }.inObjectScope(.Container)
+        defaultContainer.register(MvpDelegate.self) { _ in MvpDelegate() }
         
         defaultContainer.register(MvpPresenter.self) { TextPresenter(viewState: $0.resolve(TextViewState.self)!) }.inObjectScope(.Container)
         
@@ -40,18 +38,6 @@ class TextPresenter: MvpPresenter {
     func echo(text: String) {
         let state: TextViewState? = getViewState()
         state?.displayText(text)
-    }
-}
-
-class TextProcessor: MvpProcessor {
-    let resolver: ResolverType
-    
-    init(resolver: ResolverType) {
-        self.resolver = resolver
-    }
-    
-    func getMvpPresenters<T: View>(delegated: T) -> [Presenter] {
-        return [resolver.resolve(MvpPresenter.self)!]
     }
 }
 
@@ -90,6 +76,10 @@ class ViewController: UIViewController, TextView {
     
     var mvpDelegate: MvpDelegate!
     var presenter: TextPresenter!
+    
+    var presenters: [Presenter] {
+        return [presenter]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,20 +9,15 @@
 import Foundation
 
 public class MvpDelegate {
-    private let processor: MvpProcessor
-    
     private var isAttached: Bool = false
     private var delegated: View!
-    private var presenters: [Presenter] = []
     
-    public init(processor: MvpProcessor) {
-        self.processor = processor
+    public init() {
     }
     
     public func onCreate<V: View>(delegated: V) {
         self.delegated = delegated
         isAttached = false
-        presenters = processor.getMvpPresenters(delegated)
     }
     
     public func attachView() {
@@ -34,7 +29,7 @@ public class MvpDelegate {
             return
         }
         
-        for presenter in presenters {
+        for presenter in delegated.presenters {
             if presenter.contains(delegated) {
                 continue
             }
@@ -46,7 +41,7 @@ public class MvpDelegate {
     }
     
     public func detachView() {
-        for presenter in presenters {
+        for presenter in delegated.presenters {
             presenter.detachView(delegated)
         }
         
@@ -54,11 +49,10 @@ public class MvpDelegate {
     }
     
     public func onDestroy() {
-        for presenter in presenters {
+        for presenter in delegated.presenters {
             presenter.onDestroy()
         }
         
-        presenters.removeAll()
         delegated = nil
     }
 }
