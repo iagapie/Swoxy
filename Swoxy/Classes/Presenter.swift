@@ -23,8 +23,7 @@ public protocol Presenter {
 public class MvpPresenter: Presenter {    
     public var views: [View] = []
     public var viewState: ViewState?
-    
-    private var lock = NSObject()
+
     private var firstLaunch: Bool = true
     
     public init() {
@@ -34,10 +33,8 @@ public class MvpPresenter: Presenter {
         if let viewState = viewState {
             viewState.attachView(view)
         } else {
-            synchronized(lock) {
-                if !self.contains(view) {
-                    self.views.append(view)
-                }
+            if !contains(view) {
+                views.append(view)
             }
         }
         
@@ -54,16 +51,12 @@ public class MvpPresenter: Presenter {
         if let viewState = viewState {
             viewState.detachView(view)
         } else {
-            synchronized(lock) { removeView(&self.views, view: view) }
+            remove(view)
         }
     }
     
     public func getViewState<T: View>() -> T? {
         return viewState as? T
-    }
-    
-    public func contains(view: View) -> Bool {
-        return containsView(self.views, view: view)
     }
     
     public func isInRestoreState(view: View) -> Bool {
@@ -77,10 +70,27 @@ public class MvpPresenter: Presenter {
     public func onDestroy() {
     }
     
+    public func contains(view: View) -> Bool {
+        for i in 0..<views.count {
+            if views[i] >!< view {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func remove(view: View) {
+        for i in 0..<views.count {
+            if views[i] >!< view {
+                views.removeAtIndex(i)
+                break
+            }
+        }
+    }
+    
     deinit {
         viewState = nil
-        synchronized(lock) {
-            self.views.removeAll()
-        }
+        views.removeAll()
     }
 }

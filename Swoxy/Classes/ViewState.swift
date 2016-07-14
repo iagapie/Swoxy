@@ -50,39 +50,47 @@ public class MvpViewState: ViewState {
     }
     
     public func attachView(view: View) {
-        synchronized(lock, work: {
-            if containsView(self.views, view: view) {
-                return
-            }
-            
-            self.views.append(view)
-            self.inRestoreState.append(view)
-        })
+        if containsView(views, view: view) {
+            return
+        }
+        
+        views.append(view)
+        inRestoreState.append(view)
         
         restoreState(view)
-        
-        synchronized(lock) {
-            removeView(&self.inRestoreState, view: view)
-        }
+        removeView(&inRestoreState, view: view)
     }
     
     public func detachView(view: View) {
-        synchronized(lock) {
-            removeView(&self.views, view: view)
-            removeView(&self.inRestoreState, view: view)
-        }
+        removeView(&views, view: view)
+        removeView(&inRestoreState, view: view)
     }
     
     public func isInRestoreState(view: View) -> Bool {
-        return synchronized(lock, work: { containsView(self.inRestoreState, view: view) })
+        return containsView(inRestoreState, view: view)
+    }
+    
+    private func containsView(views: [View], view: View) -> Bool {
+        for i in 0..<views.count {
+            if views[i] >!< view {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func removeView(inout views: [View], view: View) {
+        for i in 0..<views.count {
+            if views[i] >!< view {
+                views.removeAtIndex(i)
+                break
+            }
+        }
     }
     
     deinit {
-        synchronized(lock) {
-            self.views.removeAll()
-        }
-        synchronized(lock) {
-            self.inRestoreState.removeAll()
-        }
+        views.removeAll()
+        inRestoreState.removeAll()
     }
 }
