@@ -13,35 +13,33 @@ public protocol ViewState {
     var views: [View] { get set }
     var inRestoreState: [View] { get set }
     
-    func attachView(view: View)
-    func detachView(view: View)
-    func restoreState(view: View)
-    func isInRestoreState(view: View) -> Bool
+    func attachView(_ view: View)
+    func detachView(_ view: View)
+    func restoreState(_ view: View)
+    func isInRestoreState(_ view: View) -> Bool
 }
 
-public class MvpViewState: ViewState {
-    public var commands: ViewCommands = ViewCommands()
-    public var views: [View] = []
-    public var inRestoreState: [View] = []
-    
-    private var lock = NSObject()
+open class MvpViewState: ViewState {
+    open var commands: ViewCommands = ViewCommands()
+    open var views: [View] = []
+    open var inRestoreState: [View] = []
     
     public init() {
     }
     
-    public func addCommand<Command: ViewCommand>(command: Command, action: (view: View) -> Void) {
+    open func addCommand<Command: ViewCommand>(_ command: Command, action: @escaping (_ view: View) -> Void) {
         commands.beforeApply(command)
         
         if views.isEmpty {
             return
         }
         
-        views.forEach { action(view: $0) }
+        views.forEach { action($0) }
         
         commands.afterApply(command)
     }
     
-    public func restoreState(view: View) {
+    open func restoreState(_ view: View) {
         if commands.isEmpty {
             return
         }
@@ -49,7 +47,7 @@ public class MvpViewState: ViewState {
         commands.reapply(view)
     }
     
-    public func attachView(view: View) {
+    open func attachView(_ view: View) {
         if containsView(views, view: view) {
             return
         }
@@ -61,16 +59,16 @@ public class MvpViewState: ViewState {
         removeView(&inRestoreState, view: view)
     }
     
-    public func detachView(view: View) {
+    open func detachView(_ view: View) {
         removeView(&views, view: view)
         removeView(&inRestoreState, view: view)
     }
     
-    public func isInRestoreState(view: View) -> Bool {
+    open func isInRestoreState(_ view: View) -> Bool {
         return containsView(inRestoreState, view: view)
     }
     
-    private func containsView(views: [View], view: View) -> Bool {
+    fileprivate func containsView(_ views: [View], view: View) -> Bool {
         for i in 0..<views.count {
             if views[i] >!< view {
                 return true
@@ -80,10 +78,10 @@ public class MvpViewState: ViewState {
         return false
     }
     
-    private func removeView(inout views: [View], view: View) {
+    fileprivate func removeView(_ views: inout [View], view: View) {
         for i in 0..<views.count {
             if views[i] >!< view {
-                views.removeAtIndex(i)
+                views.remove(at: i)
                 break
             }
         }

@@ -8,49 +8,49 @@
 
 import Foundation
 
-public class ViewCommand {
-    public private(set) var tag: String
-    public private(set) var stateStrategyType: StateStrategy.Type
+open class ViewCommand {
+    open fileprivate(set) var tag: String
+    open fileprivate(set) var stateStrategyType: StateStrategy.Type
     
     public init(tag: String, stateStrategyType: StateStrategy.Type) {
         self.tag = tag
         self.stateStrategyType = stateStrategyType
     }
     
-    public func apply(view: View) {
+    open func apply(_ view: View) {
         
     }
 }
 
-public class ViewCommands {
-    private var state: [ViewCommand] = []
-    private var strategies: [StateStrategy] = []
+open class ViewCommands {
+    fileprivate var state: [ViewCommand] = []
+    fileprivate var strategies: [StateStrategy] = []
     
     public init() {
     }
     
-    public var isEmpty: Bool {
+    open var isEmpty: Bool {
         return state.isEmpty
     }
     
-    public func beforeApply(viewCommand: ViewCommand) {
+    open func beforeApply(_ viewCommand: ViewCommand) {
         let stateStrategy = getStateStrategy(viewCommand)
         stateStrategy.beforeApply(&state, viewCommand)
     }
     
-    public func afterApply(viewCommand: ViewCommand) {
+    open func afterApply(_ viewCommand: ViewCommand) {
         let stateStrategy = getStateStrategy(viewCommand)
         stateStrategy.afterApply(&state, viewCommand)
     }
     
-    public func reapply(view: View) {
+    open func reapply(_ view: View) {
         for command in Array(state) {
             command.apply(view)
             afterApply(command)
         }
     }
     
-    private func getStateStrategy(viewCommand: ViewCommand) -> StateStrategy {
+    fileprivate func getStateStrategy(_ viewCommand: ViewCommand) -> StateStrategy {
         for strategy in strategies {
             if Mirror(reflecting: strategy).subjectType == viewCommand.stateStrategyType {
                 return strategy

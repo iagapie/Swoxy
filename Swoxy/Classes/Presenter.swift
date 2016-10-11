@@ -12,24 +12,24 @@ public protocol Presenter {
     var views: [View] { get set }
     var viewState: ViewState? { get set }
     
-    func attachView(view: View)
-    func detachView(view: View)
+    func attachView(_ view: View)
+    func detachView(_ view: View)
     func getViewState<T: View>() -> T?
-    func contains(view: View) -> Bool
-    func isInRestoreState(view: View) -> Bool
+    func contains(_ view: View) -> Bool
+    func isInRestoreState(_ view: View) -> Bool
     func onDestroy()
 }
 
-public class MvpPresenter: Presenter {    
-    public var views: [View] = []
-    public var viewState: ViewState?
-
-    private var firstLaunch: Bool = true
+open class MvpPresenter: Presenter {
+    open var views: [View] = []
+    open var viewState: ViewState?
+    
+    fileprivate var firstLaunch: Bool = true
     
     public init() {
     }
     
-    public func attachView(view: View) {
+    open func attachView(_ view: View) {
         if let viewState = viewState {
             viewState.attachView(view)
         } else {
@@ -44,10 +44,10 @@ public class MvpPresenter: Presenter {
         }
     }
     
-    public func onFirstViewAttach() {
+    open func onFirstViewAttach() {
     }
     
-    public func detachView(view: View) {
+    open func detachView(_ view: View) {
         if let viewState = viewState {
             viewState.detachView(view)
         } else {
@@ -55,11 +55,11 @@ public class MvpPresenter: Presenter {
         }
     }
     
-    public func getViewState<T: View>() -> T? {
+    open func getViewState<T: View>() -> T? {
         return viewState as? T
     }
     
-    public func isInRestoreState(view: View) -> Bool {
+    open func isInRestoreState(_ view: View) -> Bool {
         if let viewState = viewState {
             return viewState.isInRestoreState(view)
         }
@@ -67,10 +67,10 @@ public class MvpPresenter: Presenter {
         return false
     }
     
-    public func onDestroy() {
+    open func onDestroy() {
     }
     
-    public func contains(view: View) -> Bool {
+    open func contains(_ view: View) -> Bool {
         for i in 0..<views.count {
             if views[i] >!< view {
                 return true
@@ -80,10 +80,10 @@ public class MvpPresenter: Presenter {
         return false
     }
     
-    private func remove(view: View) {
+    fileprivate func remove(_ view: View) {
         for i in 0..<views.count {
             if views[i] >!< view {
-                views.removeAtIndex(i)
+                views.remove(at: i)
                 break
             }
         }

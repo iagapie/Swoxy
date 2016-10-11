@@ -8,21 +8,21 @@
 
 import Foundation
 
-public class MvpDelegate {
-    private var isAttached: Bool = false
-    private var mvpView: MvpView?
-    private var delegated: View!
+open class MvpDelegate {
+    fileprivate var isAttached: Bool = false
+    fileprivate var mvpView: MvpView?
+    fileprivate var delegated: View!
     
     public init() {
     }
     
-    public func onCreate<V: View>(delegated: V) {
+    open func onCreate<V: View>(_ delegated: V) {
         self.delegated = delegated
         self.mvpView = delegated as? MvpView
         isAttached = false
     }
     
-    public func attachView() {
+    open func attachView() {
         if delegated == nil {
             fatalError("You should call attachView() after onCreate(View)")
         }
@@ -42,7 +42,7 @@ public class MvpDelegate {
         isAttached = true
     }
     
-    public func detachView() {
+    open func detachView() {
         for presenter in mvpView?.presenters ?? [] {
             presenter.detachView(delegated)
         }
@@ -50,7 +50,7 @@ public class MvpDelegate {
         isAttached = false
     }
     
-    public func onDestroy() {
+    open func onDestroy() {
         for presenter in mvpView?.presenters ?? [] {
             presenter.onDestroy()
         }

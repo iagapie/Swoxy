@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class PropertyStorage {
-    private var items: [NSObject: [String: Any]] = [:]
+open class PropertyStorage {
+    fileprivate var items: [NSObject: [String: Any]] = [:]
     
     internal subscript(obj: NSObject) -> [String: Any]? {
         get {
@@ -21,7 +21,7 @@ public class PropertyStorage {
         }
     }
     
-    public subscript(obj: NSObject, property: String) -> Any {
+    open subscript(obj: NSObject, property: String) -> Any {
         get {
             return self[obj]?[property]
         }
@@ -33,19 +33,19 @@ public class PropertyStorage {
         }
     }
     
-    public func get<T>(obj: NSObject, _ property: String) -> T? {
+    open func get<T>(_ obj: NSObject, _ property: String) -> T? {
         return self[obj, property] as? T
     }
     
-    public func remove(obj: NSObject, _ property: String) -> Any {
-        return self[obj]?.removeValueForKey(property)
+    open func remove(_ obj: NSObject, _ property: String) -> Any {
+        return self[obj]?.removeValue(forKey: property)
     }
     
-    public func remove<T>(obj: NSObject, _ property: String) -> T? {
+    open func remove<T>(_ obj: NSObject, _ property: String) -> T? {
         return remove(obj, property) as? T
     }
     
-    public func remove(obj: NSObject) -> [String: Any]? {
-        return self.items.removeValueForKey(obj)
+    open func remove(_ obj: NSObject) -> [String: Any]? {
+        return self.items.removeValue(forKey: obj)
     }
 }

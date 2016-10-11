@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Swoxy'
-  s.version          = '0.1.9'
+  s.version          = '0.2.0'
   s.summary          = 'Swoxy.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ Swoxy MVP helper
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Swoxy/Classes/*'
-  
+
   # s.resource_bundles = {
   #   'Swoxy' => ['Swoxy/Assets/*.png']
   # }

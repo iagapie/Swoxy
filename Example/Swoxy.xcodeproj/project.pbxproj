@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1949828495F30AD9D2B72755 /* Pods_Swoxy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D31645254C9CD8D3519245E /* Pods_Swoxy_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		AF79EE0E6112D2BC98ECBFA9 /* Pods_Swoxy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A0CF9269F66DACE4A18649 /* Pods_Swoxy_Example.framework */; };
+		A4C446624447D48973D99752 /* Pods_Swoxy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8469858CB96FCF887763C992 /* Pods_Swoxy_Example.framework */; };
+		E534154003A0FE2680F09AAA /* Pods_Swoxy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B35373014F0B9FE6E1350B /* Pods_Swoxy_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		33E0AF6A6CAAD1AAE2924D29 /* Swoxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Swoxy.podspec; path = ../Swoxy.podspec; sourceTree = "<group>"; };
-		3A31FB22265EE3C1AA1EF82B /* Pods-Swoxy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example.release.xcconfig"; sourceTree = "<group>"; };
-		503ADE396F7EB36BD841E506 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		01CB4F7527F9AF94E60A0127 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		22369485486A2904BD7C3454 /* Swoxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Swoxy.podspec; path = ../Swoxy.podspec; sourceTree = "<group>"; };
+		4FC541792904BC3E1764D7ED /* Pods-Swoxy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		55C20058D9C79EFE9016B377 /* Pods-Swoxy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Swoxy_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swoxy_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,12 +42,11 @@
 		607FACE51AFB9204008FA782 /* Swoxy_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swoxy_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		63E741C521AD00C63175E868 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		8D31645254C9CD8D3519245E /* Pods_Swoxy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swoxy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		991FA42F883C02D80B425FCC /* Pods-Swoxy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C3A0CF9269F66DACE4A18649 /* Pods_Swoxy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swoxy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0A9DF475F095F590D87F3D8 /* Pods-Swoxy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		EAA4AC322246E17B4002F280 /* Pods-Swoxy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		6512637971909EB982E3D120 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6C7DF97F09D4E26EBD096296 /* Pods-Swoxy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8469858CB96FCF887763C992 /* Pods_Swoxy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swoxy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2B35373014F0B9FE6E1350B /* Pods_Swoxy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swoxy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8CB99F5C07FC8A584E98926 /* Pods-Swoxy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoxy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF79EE0E6112D2BC98ECBFA9 /* Pods_Swoxy_Example.framework in Frameworks */,
+				A4C446624447D48973D99752 /* Pods_Swoxy_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,29 +62,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1949828495F30AD9D2B72755 /* Pods_Swoxy_Tests.framework in Frameworks */,
+				E534154003A0FE2680F09AAA /* Pods_Swoxy_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35AE899FAD5683F9761C6C69 /* Frameworks */ = {
+		49154FCEDDA097D5A792962C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C3A0CF9269F66DACE4A18649 /* Pods_Swoxy_Example.framework */,
-				8D31645254C9CD8D3519245E /* Pods_Swoxy_Tests.framework */,
+				8469858CB96FCF887763C992 /* Pods_Swoxy_Example.framework */,
+				B2B35373014F0B9FE6E1350B /* Pods_Swoxy_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3CCD1B16C36A5A6F14D6184F /* Pods */ = {
+		50DB123491168993783A7EAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EAA4AC322246E17B4002F280 /* Pods-Swoxy_Example.debug.xcconfig */,
-				3A31FB22265EE3C1AA1EF82B /* Pods-Swoxy_Example.release.xcconfig */,
-				991FA42F883C02D80B425FCC /* Pods-Swoxy_Tests.debug.xcconfig */,
-				D0A9DF475F095F590D87F3D8 /* Pods-Swoxy_Tests.release.xcconfig */,
+				6C7DF97F09D4E26EBD096296 /* Pods-Swoxy_Example.debug.xcconfig */,
+				D8CB99F5C07FC8A584E98926 /* Pods-Swoxy_Example.release.xcconfig */,
+				55C20058D9C79EFE9016B377 /* Pods-Swoxy_Tests.debug.xcconfig */,
+				4FC541792904BC3E1764D7ED /* Pods-Swoxy_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -96,8 +96,8 @@
 				607FACD21AFB9204008FA782 /* Example for Swoxy */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				3CCD1B16C36A5A6F14D6184F /* Pods */,
-				35AE899FAD5683F9761C6C69 /* Frameworks */,
+				50DB123491168993783A7EAA /* Pods */,
+				49154FCEDDA097D5A792962C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,9 +152,9 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				33E0AF6A6CAAD1AAE2924D29 /* Swoxy.podspec */,
-				503ADE396F7EB36BD841E506 /* README.md */,
-				63E741C521AD00C63175E868 /* LICENSE */,
+				22369485486A2904BD7C3454 /* Swoxy.podspec */,
+				6512637971909EB982E3D120 /* README.md */,
+				01CB4F7527F9AF94E60A0127 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -166,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swoxy_Example" */;
 			buildPhases = (
-				E1876A7C64BA0745071E578D /* [CP] Check Pods Manifest.lock */,
+				33C4FC366B111875CA5D7C6A /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				881CBD6866541AA6DE9FBC6C /* [CP] Embed Pods Frameworks */,
-				0C8CD4E79E5DAAA09384A47E /* [CP] Copy Pods Resources */,
+				481550F8BD3F6A6450934384 /* [CP] Embed Pods Frameworks */,
+				18AFFA11869C2BBD1582EAFA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swoxy_Tests" */;
 			buildPhases = (
-				B0719FBBBF2E25AD6C4AB2CA /* [CP] Check Pods Manifest.lock */,
+				A587232A077FDE21881D8ABD /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				6791847428080ADDBB92D1F4 /* [CP] Embed Pods Frameworks */,
-				4ADE688F400D4846F9A3D9AE /* [CP] Copy Pods Resources */,
+				6C1DAC4EFD14989D382EACBB /* [CP] Embed Pods Frameworks */,
+				91A063B940F3114ACF5007A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -215,9 +215,11 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -262,7 +264,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C8CD4E79E5DAAA09384A47E /* [CP] Copy Pods Resources */ = {
+		18AFFA11869C2BBD1582EAFA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,52 +279,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4ADE688F400D4846F9A3D9AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6791847428080ADDBB92D1F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		881CBD6866541AA6DE9FBC6C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0719FBBBF2E25AD6C4AB2CA /* [CP] Check Pods Manifest.lock */ = {
+		33C4FC366B111875CA5D7C6A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +294,52 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E1876A7C64BA0745071E578D /* [CP] Check Pods Manifest.lock */ = {
+		481550F8BD3F6A6450934384 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Example/Pods-Swoxy_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C1DAC4EFD14989D382EACBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91A063B940F3114ACF5007A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swoxy_Tests/Pods-Swoxy_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A587232A077FDE21881D8ABD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,7 +441,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -477,7 +478,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -486,35 +486,35 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAA4AC322246E17B4002F280 /* Pods-Swoxy_Example.debug.xcconfig */;
+			baseConfigurationReference = 6C7DF97F09D4E26EBD096296 /* Pods-Swoxy_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swoxy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A31FB22265EE3C1AA1EF82B /* Pods-Swoxy_Example.release.xcconfig */;
+			baseConfigurationReference = D8CB99F5C07FC8A584E98926 /* Pods-Swoxy_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swoxy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 991FA42F883C02D80B425FCC /* Pods-Swoxy_Tests.debug.xcconfig */;
+			baseConfigurationReference = 55C20058D9C79EFE9016B377 /* Pods-Swoxy_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -528,12 +528,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0A9DF475F095F590D87F3D8 /* Pods-Swoxy_Tests.release.xcconfig */;
+			baseConfigurationReference = 4FC541792904BC3E1764D7ED /* Pods-Swoxy_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -543,6 +544,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -2,31 +2,15 @@
 //  ViewController.swift
 //  Swoxy
 //
-//  Created by Igor Agapie on 07/05/2016.
+//  Created by Igor Agapie on 10/11/2016.
 //  Copyright (c) 2016 Igor Agapie. All rights reserved.
 //
 
 import UIKit
 import Swoxy
-import Swinject
-
-extension SwinjectStoryboard {
-    static func setup() {
-        defaultContainer.registerForStoryboard(ViewController.self, name: "ViewController") { r, c in
-            c.mvpDelegate = r.resolve(MvpDelegate.self)!
-            c.presenter = r.resolve(MvpPresenter.self) as! TextPresenter
-        }
-        
-        defaultContainer.register(MvpDelegate.self) { _ in MvpDelegate() }
-        
-        defaultContainer.register(MvpPresenter.self) { TextPresenter(viewState: $0.resolve(TextViewState.self)!) }.inObjectScope(.Container)
-        
-        defaultContainer.register(TextViewState.self) { _ in TextViewState() }.inObjectScope(.Container)
-    }
-}
 
 protocol TextView: View {
-    func displayText(text: String)
+    func displayText(_ text: String)
 }
 
 class TextPresenter: MvpPresenter {
@@ -35,21 +19,21 @@ class TextPresenter: MvpPresenter {
         self.viewState = viewState
     }
     
-    func echo(text: String) {
+    func echo(_ text: String) {
         let state: TextViewState? = getViewState()
         state?.displayText(text)
     }
 }
 
 class DisplayTextCommand: ViewCommand {
-    private(set) var text: String!
+    fileprivate(set) var text: String!
     
     init(text: String) {
         super.init(tag: "displayText", stateStrategyType: AddToEndStrategy.self)
         self.text = text
     }
     
-    override func apply(view: View) {
+    override func apply(_ view: View) {
         super.apply(view)
         
         (view as? TextView)?.displayText(text)
@@ -57,7 +41,7 @@ class DisplayTextCommand: ViewCommand {
 }
 
 class TextViewState: MvpViewState, TextView {
-    func displayText(text: String) {
+    func displayText(_ text: String) {
         let command = DisplayTextCommand(text: text)
         commands.beforeApply(command)
         
@@ -74,8 +58,8 @@ class TextViewState: MvpViewState, TextView {
 class ViewController: UIViewController, TextView, MvpView {
     @IBOutlet weak var textField: UITextField!
     
-    var mvpDelegate: MvpDelegate!
-    var presenter: TextPresenter!
+    var mvpDelegate: MvpDelegate! = MvpDelegate()
+    var presenter: TextPresenter! = TextPresenter(viewState: TextViewState())
     
     var presenters: [Presenter] {
         return [presenter]
@@ -86,7 +70,7 @@ class ViewController: UIViewController, TextView, MvpView {
         mvpDelegate.onCreate(self)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if mvpDelegate != nil {
@@ -94,11 +78,11 @@ class ViewController: UIViewController, TextView, MvpView {
         }
     }
     
-    @IBAction func setTitleAction(sender: UIButton) {
+    @IBAction func setTitleAction(_ sender: UIButton) {
         presenter.echo(textField.text!)
     }
     
-    func displayText(text: String) {
+    func displayText(_ text: String) {
         title = text
         navigationItem.title = text
     }
