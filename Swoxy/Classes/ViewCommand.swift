@@ -9,16 +9,13 @@
 import Foundation
 
 open class ViewCommand {
-    open fileprivate(set) var tag: String
-    open fileprivate(set) var stateStrategyType: StateStrategy.Type
+    open let stateStrategyType: StateStrategy.Type
     
-    public init(tag: String, stateStrategyType: StateStrategy.Type) {
-        self.tag = tag
+    public init(stateStrategyType: StateStrategy.Type) {
         self.stateStrategyType = stateStrategyType
     }
     
     open func apply(_ view: View) {
-        
     }
 }
 
@@ -34,27 +31,23 @@ open class ViewCommands {
     }
     
     open func beforeApply(_ viewCommand: ViewCommand) {
-        let stateStrategy = getStateStrategy(viewCommand)
-        stateStrategy.beforeApply(&state, viewCommand)
+        getStateStrategy(viewCommand).beforeApply(&state, viewCommand)
     }
     
     open func afterApply(_ viewCommand: ViewCommand) {
-        let stateStrategy = getStateStrategy(viewCommand)
-        stateStrategy.afterApply(&state, viewCommand)
+        getStateStrategy(viewCommand).afterApply(&state, viewCommand)
     }
     
     open func reapply(_ view: View) {
-        for command in Array(state) {
-            command.apply(view)
-            afterApply(command)
+        Array(state).forEach {
+            $0.apply(view)
+            self.afterApply($0)
         }
     }
     
     fileprivate func getStateStrategy(_ viewCommand: ViewCommand) -> StateStrategy {
-        for strategy in strategies {
-            if Mirror(reflecting: strategy).subjectType == viewCommand.stateStrategyType {
-                return strategy
-            }
+        if let strategy = strategies.first(where: { viewCommand.stateStrategyType == Mirror(reflecting: $0).subjectType }) {
+            return strategy
         }
         
         let strategy = viewCommand.stateStrategyType.init()

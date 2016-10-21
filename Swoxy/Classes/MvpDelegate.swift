@@ -10,52 +10,51 @@ import Foundation
 
 open class MvpDelegate {
     fileprivate var isAttached: Bool = false
-    fileprivate var mvpView: MvpView?
-    fileprivate var delegated: View!
+    fileprivate weak var view: MvpView?
     
     public init() {
     }
     
-    open func onCreate<V: View>(_ delegated: V) {
-        self.delegated = delegated
-        self.mvpView = delegated as? MvpView
+    open func onCreate<V: MvpView>(_ view: V) {
+        self.view = view
         isAttached = false
     }
     
     open func attachView() {
-        if delegated == nil {
+        guard let view = self.view else {
             fatalError("You should call attachView() after onCreate(View)")
         }
         
-        if isAttached {
+        guard false == isAttached else {
             return
         }
         
-        for presenter in mvpView?.presenters ?? [] {
-            if presenter.contains(delegated) {
-                continue
-            }
-            
-            presenter.attachView(delegated)
-        }
+        view.presenters.forEach { $0.attach(view: view) }
         
         isAttached = true
     }
     
     open func detachView() {
-        for presenter in mvpView?.presenters ?? [] {
-            presenter.detachView(delegated)
+        guard let view = self.view else {
+            return
         }
+        
+        view.presenters.forEach { $0.detach(view: view) }
         
         isAttached = false
     }
     
     open func onDestroy() {
-        for presenter in mvpView?.presenters ?? [] {
-            presenter.onDestroy()
+        guard let view = self.view else {
+            return
         }
         
-        mvpView = nil
-        delegated = nil
+        if isAttached {
+            detachView()
+        }
+        
+        view.presenters.forEach { $0.onDestroy() }
+        
+        self.view = nil
     }
 }

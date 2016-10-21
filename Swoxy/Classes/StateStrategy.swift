@@ -64,11 +64,9 @@ open class AddToEndSingleStrategy: StateStrategy {
     
     open func beforeApply(_ currentState: inout [ViewCommand], _ incomingCommand: ViewCommand) {
         let type = Mirror(reflecting: incomingCommand).subjectType
-        for (i, command) in currentState.enumerated() {
-            if Mirror(reflecting: command).subjectType == type {
-                currentState.remove(at: i)
-                break
-            }
+        
+        if let i = currentState.index(where: { type == Mirror(reflecting: $0).subjectType }) {
+            currentState.remove(at: i)
         }
         currentState.append(incomingCommand)
     }

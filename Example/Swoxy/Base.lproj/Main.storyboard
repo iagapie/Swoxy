@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="383" y="60"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="6Z6-Nq-BSq">
             <objects>
-                <viewController id="47e-79-8me" sceneMemberID="viewController">
+                <viewController id="47e-79-8me" customClass="ViewController" customModule="Swoxy_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iii-a2-Nf5"/>
                         <viewControllerLayoutGuide type="bottom" id="VLn-2E-OWW"/>
@@ -88,6 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="mQM-vy-kt5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIr-g8-CWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

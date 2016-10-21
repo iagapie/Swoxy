@@ -11,6 +11,6 @@ import Foundation
 public protocol View: class {
 }
 
-public protocol MvpView: class {
+public protocol MvpView: View {
     var presenters: [Presenter] { get }
 }

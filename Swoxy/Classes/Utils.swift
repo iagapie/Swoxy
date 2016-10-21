@@ -12,6 +12,6 @@ public let propertyStorage = PropertyStorage()
 
 infix operator >!<
 
-internal func >!< (object1: AnyObject!, object2: AnyObject!) -> Bool {
-    return (object_getClassName(object1) == object_getClassName(object2))
+internal func >!< (obj1: Any, obj2: Any) -> Bool {
+    return object_getClassName(obj1) == object_getClassName(obj2)
 }

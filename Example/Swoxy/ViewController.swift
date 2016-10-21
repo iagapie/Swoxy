@@ -14,9 +14,9 @@ protocol TextView: View {
 }
 
 class TextPresenter: MvpPresenter {
-    init(viewState: TextViewState) {
+    override init() {
         super.init()
-        self.viewState = viewState
+        self.viewState = TextViewState()
     }
     
     func echo(_ text: String) {
@@ -29,7 +29,7 @@ class DisplayTextCommand: ViewCommand {
     fileprivate(set) var text: String!
     
     init(text: String) {
-        super.init(tag: "displayText", stateStrategyType: AddToEndStrategy.self)
+        super.init(stateStrategyType: AddToEndStrategy.self)
         self.text = text
     }
     
@@ -58,8 +58,11 @@ class TextViewState: MvpViewState, TextView {
 class ViewController: UIViewController, TextView, MvpView {
     @IBOutlet weak var textField: UITextField!
     
-    var mvpDelegate: MvpDelegate! = MvpDelegate()
-    var presenter: TextPresenter! = TextPresenter(viewState: TextViewState())
+    var mvpDelegate: MvpDelegate?
+    
+    var presenter: TextPresenter {
+        return (UIApplication.shared.delegate as! AppDelegate).presenter
+    }
     
     var presenters: [Presenter] {
         return [presenter]
@@ -67,15 +70,18 @@ class ViewController: UIViewController, TextView, MvpView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mvpDelegate.onCreate(self)
+        mvpDelegate = MvpDelegate()
+        mvpDelegate?.onCreate(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if mvpDelegate != nil {
-            mvpDelegate.attachView()
-        }
+        mvpDelegate?.attachView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mvpDelegate?.detachView()
     }
     
     @IBAction func setTitleAction(_ sender: UIButton) {
@@ -88,10 +94,8 @@ class ViewController: UIViewController, TextView, MvpView {
     }
     
     deinit {
-        mvpDelegate.detachView()
-        mvpDelegate.onDestroy()
+        mvpDelegate?.onDestroy()
         mvpDelegate = nil
-        presenter = nil
     }
 }
 

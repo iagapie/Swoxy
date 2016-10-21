@@ -12,11 +12,11 @@ public protocol Presenter {
     var views: [View] { get set }
     var viewState: ViewState? { get set }
     
-    func attachView(_ view: View)
-    func detachView(_ view: View)
+    func attach(view: View)
+    func detach(view: View)
     func getViewState<T: View>() -> T?
-    func contains(_ view: View) -> Bool
-    func isInRestoreState(_ view: View) -> Bool
+    func contains(view: View) -> Bool
+    func isRestoring(view: View) -> Bool
     func onDestroy()
 }
 
@@ -24,34 +24,28 @@ open class MvpPresenter: Presenter {
     open var views: [View] = []
     open var viewState: ViewState?
     
-    fileprivate var firstLaunch: Bool = true
+    fileprivate var isFirstLaunch: Bool = true
     
     public init() {
     }
     
-    open func attachView(_ view: View) {
-        if let viewState = viewState {
-            viewState.attachView(view)
-        } else {
-            if !contains(view) {
-                views.append(view)
-            }
+    open func attach(view: View) {
+        if true != viewState?.attach(view: view) && !contains(view: view) {
+            views.append(view)
         }
         
-        if firstLaunch {
-            firstLaunch = false
-            onFirstViewAttach()
+        if isFirstLaunch {
+            isFirstLaunch = false
+            onFirstAttach()
         }
     }
     
-    open func onFirstViewAttach() {
+    open func onFirstAttach() {
     }
     
-    open func detachView(_ view: View) {
-        if let viewState = viewState {
-            viewState.detachView(view)
-        } else {
-            remove(view)
+    open func detach(view: View) {
+        if true != viewState?.detach(view: view) {
+            remove(view: view)
         }
     }
     
@@ -59,33 +53,20 @@ open class MvpPresenter: Presenter {
         return viewState as? T
     }
     
-    open func isInRestoreState(_ view: View) -> Bool {
-        if let viewState = viewState {
-            return viewState.isInRestoreState(view)
-        }
-        
-        return false
+    open func isRestoring(view: View) -> Bool {
+         return true == viewState?.isRestoring(view: view)
     }
     
     open func onDestroy() {
     }
     
-    open func contains(_ view: View) -> Bool {
-        for i in 0..<views.count {
-            if views[i] >!< view {
-                return true
-            }
-        }
-        
-        return false
+    open func contains(view: View) -> Bool {
+        return views.contains(where: { $0 >!< view })
     }
     
-    fileprivate func remove(_ view: View) {
-        for i in 0..<views.count {
-            if views[i] >!< view {
-                views.remove(at: i)
-                break
-            }
+    fileprivate func remove(view: View) {
+        if let i = views.index(where: { $0 >!< view }) {
+            views.remove(at: i)
         }
     }
     
